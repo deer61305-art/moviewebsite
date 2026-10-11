@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="TitleDiv">
+            <img class="Logo" src="./MovieImgs/popcorn.png" alt="">
+            <h1>MOVIE<span>BOX</span></h1>
+        </div>
+
+   
+
+        <ul class="Links hide" id="links">
+            <li class="Active"> <a href="#Home-section">Home</a></li>
+            <li><a href="#movies-section">Movies</a></li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+
+
+        <div class="dwonHeader">
+
+            <button class="menuToggle"><i class="fa-solid fa-list"></i></button>
+            <div class="FavDiv">
+                <i class="fa-regular fa-heart"></i>
+                <div class="textFavDiv">
+                    <h5>Favorites: <span class="ClickedHearts">0</span></h5>
+                </div>
+            </div>
+
+        </div>
+       
+    </header>
+
+    <div class="MainDIV" id="Home-section">
+                
+            <div class="MainDiv">
+                <div class="background"></div>
+                <div class="MouseThing"></div>
+
+                <div class="smth">
+                    <div class="mainpart1">
+                        <div class="divpart1-2">
+                            <div class="part1Div">
+
+                                <div class="needed">
+                                    <p></p>
+                                    <h4>Curated cinema · Every day</h4>
+                                </div>
+
+                                    <h1>Discover Your Next <br>
+                                    <span>Favorite Movie</span></h1>
+                                    <h3>Watch the best movies and discover new stories every day. From quiet <br>
+                                        masterpieces to unforgettable adventures.</h3>
+                            </div>
+                            <a href="#movies-section"><button class="ExploreBtn">EXPLORE MOVIES <i class="fa-solid fa-angle-down"></i></button></a>
+                        </div>
+
+                        <div class="need2">
+                            <p class="line2"></p>
+                            <h4>SCROLL TO DISCOVER</h4>
+                        </div>
+
+                            
+                    </div>
+
+                    <div class="mainpart2">
+
+                        <div class="RoundThingDiv">
+
+                                <div class="SpinBorder"></div>
+                                <div class="Infos">
+                                    <div class="RoundThing-Num">24</div>
+
+                                    <span class="dot top"></span>
+                                    <span class="dot right"></span>
+                                    <span class="dot bottom"></span>
+                                    <span class="dot left"></span>
+                                </div>
+                        </div>
+
+
+                        <div class="randomDiv">
+                            <div class="needed3">
+                                <h6>01 / Featured</h6> 
+                            </div>
+
+                            <div class="titles">
+                                <h4>Tonight's selection</h4>
+                                <h3>Stories stay with us.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        <div class="AnimatedTitles">
+            <div class="neededDiv">
+                <span>STORIES THAT MOVE YOU</span><span class="starIcon">✦</span>
+                <span>CURATED CINEMA</span><span class="starIcon">✦</span>
+                <span>NEW WORLDS AWAIT</span><span class="starIcon">✦</span>
+
+                <span>STORIES THAT MOVE YOU</span><span class="starIcon">✦</span>
+                <span>CURATED CINEMA</span><span class="starIcon">✦</span>
+                <span>NEW WORLDS AWAIT</span><span class="starIcon">✦</span>
+
+                <span>STORIES THAT MOVE YOU</span><span class="starIcon">✦</span>
+                <span>CURATED CINEMA</span><span class="starIcon">✦</span>
+                <span>NEW WORLDS AWAIT</span><span class="starIcon">✦</span>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="SearchCardsDiv" id="movies-section">
+
+         <div class="TitleDiv1">
+             <div class="extra">
+                 <div class="needed4">
+                     <p></p>
+                      <h4>NOW SHOWING</h4>
+                 </div>
+                 <h1>
+                     Find a story <br>
+                     worth <br>
+                     watching.
+                 </h1>
+             </div>
+
+             <h3>
+                 Explore our hand-picked selection of cinema. Search by title, <br>
+                 discover a genre, or let the highest-rated stories lead the way.
+             </h3>
+         </div>
+
+         <div class="statistics">
+            <div class="static"> <div><h3>Total movies</h3>  <h5>Curated titles</h5></div>  <h1 class="TotalMovieH">9</h1></div>
+            <div class="static border"> <div><h3>Highest rating</h3>  <h5>Audience score</h5></div>  <h1 class="HighestRateH">9.1</h1></div>
+            <div class="static border"> <div><h3>Average rating</h3>  <h5>Across all movies</h5></div>  <h1 class="AverageRateH">8</h1></div>
+         </div>
+
+         <div class="FilterSearchDiv">
+
+                 <div class="Extra1">
+                    <h6>SEARCH</h6>
+                    <div class="SearchMainDiv">
+                        <i class="fa fa-search"></i>
+                        <input type="text" id="SearchInp" placeholder="Search movie...">
+                    </div>
+                 </div>
+
+             <div class="Filters">
+                <div class="Filter">
+                    <h6>GENRE</h6>
+                    <select class="GenreSelect">
+                         <option value="All genres">All genres</option>
+                         <option value="Action">Action</option>
+                         <option value="Horror">Horror</option>
+                         <option value="Comedy">Comedy</option>
+                         <option value="Drama">Drama</option>
+                         <option value="Sci-Fi">Sci-Fi</option>
+                    </select>
+                </div>
+
+                <div class="Filter">
+                    <h6>SORT BY</h6>
+
+                    <select class="SortSelect">
+                        <option value="Default">Default</option>
+                        <option value="HighLow">Rating: High to Low</option>
+                        <option value="LowHigh">Rating: Low to High</option>
+                        <option value="Newest">Newest</option>
+                        <option value="Oldest">Oldest</option>
+                    </select>
+
+                </div>
+             </div>
+
+              <div class="BtnDiv">
+                 <button class="ResetBtn"><i class="fa fa-refresh" aria-hidden="true"></i> RESET</button>
+              </div>
+         </div>
+    </div>
+    
+    <div class="MovieDiv">
+        <div class="TTitles">
+            <h1>All movies</h1>
+            <h5><span class="CardsInBox">0</span> TITLES</h5>
+        </div>
+        <div class="CardsDiv"></div>
+    </div>
+
+    <div class="InfoDiv" id="about-section">
+        <div class="InfoImgDiv">
+                <img src="./MovieImgs/redSits.avif" alt="">
+                <div class="posDiv">
+                <h5>SINCE 2026</h5>
+                <h1>Made for movie lovers.</h1>
+                </div>
+        </div>
+
+        <div class="underPartInfo">
+               <div class="needed7">
+                    <div class="extra4">
+                        <p></p>
+                        <h5>ABOUT MOVIEBOX</h5>
+                    </div>
+
+                    <h1>Great stories deserve to<br> be discovered.</h1>
+
+                    <h3>MovieBox is a simple movie platform where you can discover interesting movies <br>
+                        and find your next favorite story. We bring memorable cinema together in one carefully <br>
+                        curated place.</h3>
+               </div>
+
+                <div class="Infos1">
+                    <div class="Info"><h1>100+</h1>  <h5>MOVIES</h5></div>
+                    <div class="Info border"><h1>50+</h1>  <h5>GENRES</h5></div>
+                    <div class="Info border"><h1>24/7</h1>  <h5>AVAIBLES</h5></div>
+                </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="SendMessageDiv" id="contact-section">
+        <div class="leftSidedDiv">
+            <div class="extra14">
+                <p></p>
+                <h5>GET IN TOUCH</h5>
+            </div>
+
+            <h1>
+                Let,s talk <br>
+                about movies.
+            </h1>
+
+            <h3>
+                Have a recommendation or simply <br>
+                want to share your latest favorite? We <br>
+                would love to hear from you.
+            </h3>
+
+           <div class="websiteTitle">
+                  <h3>hello@moviebox.com <span>↗</span></h3>
+                  <hr>
+           </div>
+        </div>
+
+        <form class="registerThing">
+            <div class="input">
+                <label for="name">NAME</label>
+                <input type="text" id="name" placeholder="Your full name">
+                <p class="Error namerror">Please enter your name.</p>
+            </div>
+
+            <div class="input">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" placeholder="you@example.com">
+                <p class="Error Emailerror">Please enter a valid email address.</p>
+            </div>
+
+            <div class="Textarea">
+                <h3>MESSAGE</h3>
+                <textarea placeholder="Tell us What,s on your mind" id="textA"></textarea>
+                <p class="Error textareaerror">Please enter your message.</p>
+                <p class="SentP">Message Sent Successfully!</p>
+            </div>
+
+
+            <button class="SendBtn">SEND MESSAGE <span>→</span></button>
+           
+        </form>
+    </div>
+
+    <div class="end">
+        <div class="TitleDiv">
+            <img class="Logo" src="./MovieImgs/popcorn.png" alt="">
+            <h1>MOVIE<span>BOX</span></h1>
+        </div>
+        <h5>Stories worth watching.</h5>
+        <h5>© 2026 MOVIEBOX</h5>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

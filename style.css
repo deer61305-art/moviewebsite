@@ -1,0 +1,1564 @@
+:root {
+  --ink: #101316;
+  --navy: #121922;
+  --navy-soft: #1b2531;
+  --cream: #f3f0e8;
+  --paper: #fbfaf6;
+  --red: #e14b3d;
+  --red-dark: #bd372c;
+  --gold: #e9b85f;
+  --muted: #747879;
+  --line: #d8d5cd;
+  --white-line: rgba(255, 255, 255, .15);
+  --display: "Manrope", sans-serif;
+  --body: "DM Sans", sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+body{
+    font-family: "DM Sans", sans-serif;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/*header*/
+header{
+    position: fixed;
+    height: 80px;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(16, 22, 29, 0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid  rgba(255, 255, 255, .11);
+}
+.TitleDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+.TitleDiv img{
+    width: 48px;
+    height: 48px;
+}
+.TitleDiv h1{
+    font-family: "DM Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    color: var(--paper);
+}
+.TitleDiv h1 span{
+    color: var(--red);
+}
+ul li{
+    float: left;
+    margin: 22px;
+    list-style-type: none; 
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 20px;
+    font-family: "DM Sans", sans-serif;
+    position: relative;
+}
+ul li::before{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: var(--red);
+    border-radius: 4px;
+    bottom: -6px;
+    transition: ease-in-out 0.3s;
+}
+ul li:hover::before{
+    width: 100%;
+}
+ul li:hover{
+    color: var(--paper);
+}
+.Active::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--red);
+    border-radius: 4px;
+    bottom: -6px;
+    transition: ease-in-out 0.3s;
+}
+.Active{
+    color: var(--paper);
+}
+.FavDiv{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 170px;
+    height: 54px;
+    padding: 2px;
+    border-radius: 35px;
+    background-color: transparent;
+    border: 1px solid var(--line);
+}
+.FavDiv i{
+    color: var(--red);
+    font-size: 19px;
+}
+.textFavDiv h5{
+    color: var(--muted);
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.textFavDiv h5 span{
+    display: inline-flex;
+    background-color: var(--red);
+    color: var(--paper);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dwonHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.menuToggle{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: var(--red);
+    display: none;
+}
+ul li a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+#movie-section, #Home-section, #about-section, #contact-section{
+    scroll-margin-top: 90px;
+}
+.MainDiv a{
+    text-decoration: none;
+}
+.ExploreBtn a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/*main part*/
+.MainDIV{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+     padding: 60px;
+}
+.MainDiv{
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    min-height: auto; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 35px 20px;
+    background-color: var(--ink);
+}
+.background{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: 
+    linear-gradient(
+        90deg,
+        rgba(5, 8, 12, 0.55),
+        rgba(5, 8, 12,0.20)
+    ),
+    url('./MovieImgs/istockphoto-504096800-612x612.jpg') center / cover no-repeat;
+}
+.MainDiv::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 1;
+}
+.MouseThing{
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(
+        450px circle at var(--mouse-x,50%) var(--mouse-y, 50%),
+        rgba(255, 130,90,0.25) 0%,
+        rgba(255,130,70,0.08) 40%,
+        transparent 70%
+    );
+
+    mix-blend-mode: screen;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+.MainDiv:hover .MouseThing{
+    opacity: 1;
+}
+.smth{
+    position: relative;
+    z-index: 3;
+    color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 27%;
+    padding: 20px 40px;
+}
+
+.mainpart1{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 70px;
+    flex-direction: column;
+}
+.part1Div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+}
+.divpart1-2{
+     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 45px;
+    flex-direction: column;
+}
+.needed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.mainpart2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 130px;
+}
+.needed p{
+    height: 1px;
+    width: 37px;
+    background-color: var(--gold);
+}
+.needed h4{
+    color: var(--gold);
+}
+.part1Div h1{
+    color: var(--paper);
+    font-size: 70px;
+}
+.part1Div h1 span{
+    color: var(--red);
+}
+.part1Div h3{
+    color: var(--muted);
+    font-size: 20px;
+    font-weight: 300;
+}
+.ExploreBtn{
+    width: 240px;
+    height: auto;
+    background-color: var(--red);
+    border: none;
+    border-radius: 7px;
+    color: var(--paper);
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 28px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.ExploreBtn:hover{
+    background-color: var(--red-dark);
+    color: var(--paper);
+    box-shadow: 0px 10px 30px var(--red);
+}
+.need2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.need2 p{
+    width: 45px;
+    height: 1px;
+    background-color: var(--muted);
+}
+.need2 h4{
+    color: var(--muted);
+    font-weight: 200;
+    font-size: 12px;
+}
+
+/*Round thing */
+
+.RoundThingDiv{
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border: 1px solid var(--white-line);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 3s ease-in-out infinite;
+}
+.SpinBorder{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 1px dashed var(--white-line);
+    border-radius: 50%;
+    animation: spin-around 12s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RoundThing-Num{
+    font-family: sans-serif;
+    font-size: 24px;
+    color: var(--gold);
+    font-weight: bold;
+}
+.dot{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--white-line);
+    border-radius: 50%;
+}
+.dot.top{
+    top: 8px;
+    left: calc(50% - 5px);
+}
+.dot.right{
+    right: 8px;
+    top: calc(50% - 5px);
+}
+.dot.bottom{
+    bottom: 8px;
+    left: calc(50% - 5px);
+}
+.dot.left{
+    left: 8px;
+    top: calc(50% - 5px);
+}
+.Infos{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.randomDiv{
+    width: 300px;
+    height: 120px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0C1014;
+    border-radius: 3px;
+    border-left: 2px solid var(--gold);
+}
+.needed3 h6{
+    transform: rotate(270deg);
+    color: var(--gold);
+    font-size: 14px;
+}
+.titles{
+    font-family:"DM Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-direction: column;
+    gap: 15px;
+}
+.titles h4{
+    color: var(--muted);
+    font-size: 15px;
+}
+.titles h3{
+    color: var(--cream);
+    font-size: 20px;
+}
+
+/* animated/moving div */
+.AnimatedTitles{
+    overflow: hidden;
+    background-color: var(--navy);
+    padding: 20px 0px;
+    width: 100%;
+    border-top: 1px solid var(--white-line);
+    border-bottom: 1px solid var(--white-line);
+}
+.neededDiv{
+    display: flex;
+    white-space: nowrap;
+    gap: 60px;
+
+    animation: move-left-side 20s linear infinite;
+}
+.neededDiv span{
+    color: var(--cream);
+    font-weight: bold;
+    font-size: 16px;
+}
+.starIcon{
+    color: var(--red) !important;
+}
+
+/*Search + Cards Div STYLING*/
+.SearchCardsDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background-color: var(--cream);
+
+}
+.TitleDiv1{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 15px;
+}
+.extra{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+.needed4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.needed4 p{
+  width: 40px;
+  border: 1px solid var(--red);
+}
+.needed4 h4{
+    color: var(--red);
+    font-size: 14px;
+    font-weight: 400;
+}
+.extra h1{
+    color: black;
+    font-size: 60px;
+    font-weight: 200;
+}
+.TitleDiv1 h3{
+    color: var(--muted);
+    font-weight: 100;
+    font-size: 22px;
+}
+
+/* statisctis */
+.statistics{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 30px 0px;
+}
+.static{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 20px;  
+}
+.static div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-direction: column;
+    gap: 14px;
+}
+.static div h3{
+    color: var(--muted);
+    font-size: 20px;
+}
+.static div h5{
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 200;
+}
+.static h1{
+    color: var(--ink);
+    font-size: 57px;
+}
+.border{
+    border-left: 1px solid var(--line);
+}
+
+/*Search + Filter Divs */
+.FilterSearchDiv{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--paper);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 30px;
+}
+.Extra1{
+    width: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    flex-direction: column;
+}
+.SearchMainDiv{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cream);
+    border: none;
+    border-radius: 4px;
+    gap: 30px;
+}
+.SearchMainDiv i{
+    color: var(--ink);
+    font-size: 24px;
+}
+.SearchMainDiv input::placeholder{
+    font-size: 18px;
+    color: var(--ink);
+}
+.SearchMainDiv input{
+  width: 90%;
+  height: 50px;
+  color: var(--ink);
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  outline: none;
+}
+.Filters{
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Filter{
+    width: 45%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+.Filter select{
+
+    width: 100%;
+    padding: 25px;
+    font-size: 19px;
+    height: auto;
+    border: none;
+    background-color: var(--cream);
+    color: var(--navy-soft);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.Extra1 h6,
+.Filter h6{
+    color: var(--ink);
+    font-size: 12px;
+}
+.BtnDiv{
+    width: 94%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.ResetBtn{
+    color: var(--paper);
+    background-color: var(--ink);
+    width: 45%;
+    padding: 22px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.ResetBtn:hover{
+    background-color: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    cursor: pointer;
+}
+
+
+/* Card */
+.MovieDiv{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.TTitles{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93%;
+}
+.TTitles h5{
+    color: var(--muted);
+    font-weight: 100;
+}
+.Card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 87%;
+    height: auto;
+    background-color: var(--paper);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.Card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+.CardUpDiv{
+    width: 100%;
+    height: 550px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.CardUpDiv img{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.CardUpDiv img:hover{
+    transform: scale(1.05);
+}
+.CardImgUp{
+    position: absolute;
+    top: 15px;
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.CardImgUp h3{
+    color: var(--gold) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:  10px;
+    gap: 5px;
+    padding: 8px;
+    height: auto;
+    background-color: rgba(0,0,0,0.85);
+}
+.CardImgUp h3 span{
+    color: var(--paper);
+}
+.Click{
+    padding: 17px;
+    background-color: rgba(0,0,0,0.85);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.Click i{
+    color: var(--paper);
+    font-size: 19px;
+}
+.Click:hover{
+    transform: translateY(-4px);
+    background-color: var(--paper);
+}
+.Click:hover i{
+ color: var(--ink);
+}
+.CardImgDown{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    top: 68%;
+    left: 10px;
+}
+.CardImgDown h4{
+  color: var(--muted);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.CardImgDown h1{
+    color: var(--paper);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+.DownCardDiv{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    background-color: var(--paper);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.DownCardDiv p{
+    width: 5px;
+    height: 5px;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+.DownCardDiv h4{
+  color: var(--muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 100;
+}
+.DetailsBtn{
+    width: 97%;
+    height: auto;
+    padding: 18px 15px;
+    font-size: 17px;
+    background-color: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.DetailsBtn:hover{
+    background-color: var(--ink);
+    color: var(--cream);
+}
+/*CLicked HEart THIng*/
+.Clicked i{
+    color: var(--ink);
+}
+.Clicked{
+    background-color: var(--paper);
+    border: 1px solid var(--ink);
+}
+.CardsDiv{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    justify-items: center;
+    gap: 30px;
+}
+
+/* Modal */
+
+.Modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 900px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--paper);
+    gap: 20px;
+    z-index: 20;
+
+}
+.DivImgModal{
+    flex:1;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+.DivImgModal img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.ModalInfo{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+
+}
+.needed121{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+.ModalInfo h3{
+    font-size: 16px;
+    color: var(--muted);
+}
+.ModalInfo h5{
+    color: var(--red);
+}
+.ModalInfo h1{
+    color: var(--ink);
+    font-size: 40px;
+}
+.ModalInfo h4 span{
+    color: var(--gold);
+    font-size: 24px;
+}
+.ModalInfo h4{
+    font-size: 22px
+}
+.CloseBtn{
+    width: 47%;
+    background-color: var(--red);
+    height: auto;
+    color: var(--paper);
+    border: none;
+    padding: 20px 15px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+.CloseBtn:hover{
+background-color: var(--red-dark);
+transform: translateY(-8px);
+box-shadow: 0px 10px 20px var(--red);
+}
+.MainDIV,
+.SearchCardsDiv,
+.CardsDiv,
+.InfoDiv,
+.SendMessageDiv{
+    margin-bottom: 35px;
+}
+
+/* Info DIV */
+
+
+.InfoImgDiv{
+    position: relative;
+    flex: 2;
+    height: 100%;
+}
+.InfoImgDiv img{
+    width: 100%;
+    height: 100%;
+}
+
+.posDiv{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    gap: 10px;
+    flex-direction: column;
+    bottom: 10px;
+    left: 10px;
+}
+.posDiv h5{
+     color: var(--gold);
+     font-weight: 100;
+}
+.posDiv h1{
+    color: var(--paper);
+    font-weight: 500;
+}
+.extra4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.extra4 p{
+    width: 42px;
+    border: 1px solid var(--gold);
+}
+.extra4 h5{
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 15px;
+}
+.underPartInfo h1{
+    font-size: 55px;
+    color: var(--paper);
+}
+.underPartInfo h3{
+    color: var(--muted);
+    font-size: 20px;
+    font-weight: 200;
+}
+.Infos1{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+.Info{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20px;
+    padding: 20px;
+}
+.Info h1{
+    color: var(--red);
+}
+.Info h5{
+    color: var(--muted);
+}
+.needed7{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 38px;
+}
+.underPartInfo{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 75px; 
+}
+.InfoDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    gap: 60px;
+    background-color: var(--navy);
+}
+.extra14{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.extra14 p{
+    width: 39px;
+    border: 1px solid var(--red);
+}
+.extra14 h5{
+    color: var(--red);
+    font-weight: 700;
+}
+.leftSidedDiv h1{
+    font-size: 55px;
+}
+.leftSidedDiv h3{
+    color: var(--muted);
+    font-size: 20px;
+    font-weight: 300;
+}
+.websiteTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.websiteTitle h3{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0C1014;
+    cursor: pointer;
+}
+.websiteTitle hr{
+    border: 1px solid var(--navy);
+    width: 100%;
+}
+
+.SendMessageDiv{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leftSidedDiv{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-direction: column;
+    gap: 25px;
+}
+.registerThing{
+    width: 55%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--paper);
+    padding: 20px 10px;
+    border-radius: 2px;
+}
+
+.input{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+.input input{
+    width: 100%;
+    height: auto;
+    padding: 18px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    background-color: var(--cream);
+}
+label{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+}
+.input input::placeholder{
+    color: var(--muted);
+}
+.Textarea{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+.Textarea h3{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+}
+ textarea{
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--cream);
+}
+.SendBtn{
+    width: 40%;
+    height: auto;
+    padding: 21px 30px;
+    background-color: var(--red);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 500;
+    transition: 0.3s ease-in-out;
+}
+.SendBtn:hover{
+    background-color: var(--red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 30px var(--red);
+}
+.SentP{
+    color: green;
+    display: none;
+}
+.Error{
+    font-size: 12px;
+    color: var(--red);
+}
+.namerror,.Emailerror,.textareaerror{
+    display: none;
+}
+
+/* bottom part/END */
+
+.end{
+    width: 100%;
+    height: auto;
+    padding: 35px 17px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--ink);
+}
+.end h5{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+@keyframes spin-around{
+    from{transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+@keyframes spin{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-12px);
+    }
+}
+@keyframes move-left-side {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
+}
+
+@media(max-width: 2560px) {
+    .MainDIV{
+        width: 200%;
+    }
+}
+@media(max-width: 1440px){
+    .MainDiv{
+        width: 65%;
+        justify-content: space-evenly;
+    }
+}
+@media(max-width:1024px){
+    ul li{
+        font-size: 16px;
+    }
+    .smth{
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        text-align: center;
+    }
+    .divpart1-2{
+        align-items: center;
+    }
+    .needed{
+        justify-content: center;
+    }
+    .InfoDiv{
+        height: auto;
+        flex-direction: column;
+    }
+    .InfoImgDiv{
+        width: 100%;
+        height: 250px;
+    }
+    .underPartInfo{
+        padding: 15px 10px;
+    }
+    .ExploreBtn{
+        width: 80%;
+        font-size: 20px;
+        justify-content: space-between;
+    }
+    .randomDiv{
+        width: 600px;
+        height: 180px;
+        padding: 30px 10px;
+        
+    }
+    .needed3 h6{
+    transform: rotate(270deg);
+    color: var(--gold);
+    font-size: 21px;
+    }
+
+    .titles h4{
+        color: var(--muted);
+        font-size: 24px;
+    }
+    .titles h3{
+        color: var(--cream);
+        font-size: 28px;
+    }
+    .SendBtn{
+        width: 80%;
+        font-size: 15px;
+    }
+    .RoundThingDiv{
+        display: none;
+    }
+}
+@media(max-width: 768px){
+  .Links{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(16,22,28,0.5);
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid var(--white-line);
+    backdrop-filter: blur(15px);
+  }
+  .Links li{
+   margin: 20px;
+  }
+  .menuToggle{
+    display: flex;
+  }
+  .hide{
+    display: none
+  }
+  .RoundThingDiv{
+        display: none;
+  }
+
+  .statistics{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .static{
+    border: none;
+  }
+  .TitleDiv1{
+     flex-direction: column;
+     align-items: flex-start;
+     gap: 10px;
+
+  }
+  .Filters{
+     flex-direction: column;
+     width: 97%;
+     gap: 14px;
+  }
+  .Filter{
+      width: 97%;
+  }
+  .ResetBtn{
+      width: 100%;
+  }
+
+  .CardsDiv{
+      grid-template-columns: repeat(1,1fr);
+      width: 95%;
+  }
+  .Card{
+        width: 100%;
+  }
+  .underPartInfo{
+      align-items: center;
+      padding: 16px;
+  }
+  .SendMessageDiv{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+}
+  .registerThing{
+      width: 100%;
+  }
+  .end{
+       flex-direction: column;
+       gap: 10px;
+       text-align: center;
+   }
+  .ExploreBtn{
+       width: 90%;
+       font-size: 15px;
+  }
+  .Modal{
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .DivImgModal{
+    width: 100%;
+    height: 450px;
+  }
+  .DivImgModal img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+}
+
+
+@media(max-width: 680px){
+    .part1Div h1{
+        font-size: 55px;
+    }
+    .part1Div h3{
+        font-size: 16px;
+    }
+    .ExploreBtn{
+        width: 70%;
+        height: 60px;
+        font-size: 12px;
+    }
+    .randomDiv{
+        width: 450px;
+        height: 130px;
+    }
+    .needed3 h6{
+    font-size: 16px;
+    }
+
+    .titles h4{
+        font-size: 20px;
+    }
+    .titles h3{
+        font-size: 22px;
+    }
+    .RoundThingDiv{
+        position: absolute;
+        top: 310px;
+        right: 31%;
+    }
+    .SendBtn{
+        width: 80%;
+        font-size: 12px;
+    }
+}
+@media (max-width: 515px){
+    .RoundThingDiv{
+        display: none;
+    }
+    .smth,
+    .mainpart1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .part1Div{
+        align-items: center;
+        justify-content: center;
+    }
+    .TitleDiv img{
+        width: 30px;
+        height: 30px;
+    }
+    .TitleDiv h1{
+        font-size: 18px;
+    }
+    .FavDiv{
+        width: 80px;
+        height: 40px;
+    }
+    .textFavDiv h5{
+       font-size: 0px;
+    }
+    .textFavDiv h5 span{
+        width: 20px;
+        height: 20px;
+        font-size: 15px;
+    }
+    .FavDiv i{
+        font-size: 17px;
+    }
+    .part1Div h1{
+        font-size: 34px;
+    }
+    .part1Div h3{
+        font-size: 11px;
+    }
+    .ExploreBtn{
+       width: 80%;
+       height: 40px;
+       border-radius: 10px;
+       font-size: 12px;  
+    }
+    .randomDiv{
+        width: 300px;
+    }
+    .needed3 h6{
+        font-size: 14px;
+    }
+    .titles h4{
+        font-size: 15px;
+    }
+    .titles h3{
+        font-size: 17px;
+    }
+    .needed h4{
+        font-size: 13px;
+    }
+    .need2 h4{
+        font-size: 12px;
+    }
+    .extra4 h5{
+        font-size: 12px;
+    }
+    .needed7 h1{
+        font-size: 30px;
+    }
+    .needed7 h3{
+        font-size: 14px;
+    }
+    .underPartInfo{
+        align-items: center;
+    }
+    .underPartInfo h1{
+        font-size: 35px;
+    }
+    .SendBtn{
+        width: 80%;
+        font-size: 12px;
+    }
+}
+@media(max-width: 330px){
+    .Card{
+        width: 95%;
+    }
+    .randomDiv{
+        width: 290px;
+    }
+    .part1Div h1{
+        font-size: 37px;
+    }
+    .part1Div h3{
+        font-size: 14px;
+    }
+    .ExploreBtn{
+        width: 200px;
+        font-size: 12px
+    }
+    .underPartInfo h1{
+        font-size: 28px;
+    }
+    .needed7 h4{
+        font-size: 12px;
+    }
+    .Info h5{
+        font-size: 10px;
+    }
+    .Infos1{
+        width: 100%;
+    }
+    .Links li{
+        font-size: 12px;
+    }
+    .DownCardDiv h4{
+        font-size: 12px;
+    }
+    .needed h4{
+        font-size: 10px;
+    }
+    .ExploreBtn{
+        font-size: 10px;
+    }
+    .CardImgDown h1{
+        font-size: 22px;
+    }
+    
+} 
+@media(max-width: 318px) {
+    html,body{
+        display: none;
+    }
+}
